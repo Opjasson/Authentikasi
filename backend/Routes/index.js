@@ -1,6 +1,7 @@
 import express from "express";
 import { getUsers, Register, Login } from "../Controllers/Users.js";
 import { verifyToken } from "../middleware/VerifyToken.js";
+import { refreshToken } from "../Controllers/RefreshToken.js";
 
 const router = express.Router();
 
@@ -9,5 +10,6 @@ const router = express.Router();
 router.get('/users',verifyToken ,getUsers)
 router.post('/users', Register)
 router.post('/login', Login)
+router.get('/token', refreshToken)
 
 export default router

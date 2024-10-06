@@ -2,8 +2,11 @@ import express from "express";
 import dotenv from "dotenv";
 import db from "./config/Database.js";
 import router from "./Routes/index.js";
+import cookieParser from "cookie-parser"
+
 const app = express();
 dotenv.config();
+
 // import Users from "./models/Usermodels.js";
 
 // config DB sequalize berfungsi dengan baik
@@ -16,6 +19,7 @@ try {
 }
 
 app.use(express.json()); // Supaya bisa menerima data dalam bentuk json
+app.use(cookieParser())
 app.use(router);
 
 app.listen(5001, () => console.log("Server running on port 5000"));
