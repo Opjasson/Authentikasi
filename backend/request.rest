@@ -1,5 +1,7 @@
 GET http://localhost:5001/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJqYXNzb24iLCJlbWFpbCI6ImVtYWlsQGdtYWlsLmNvbSIsImlhdCI6MTcyODIxNzA5NiwiZXhwIjoxNzI4MjE3MTE2fQ.m2OI7EGq3JNsb6RRFkqktJWJUNQ_vjJU8qfDW-QXYFI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJqYXNzb24iLCJlbWFpbCI6ImVtYWlsQGdtYWlsLmNvbSIsImlhdCI6MTcyODMxMzc0MSwiZXhwIjoxNzI4MzEzNzU2fQ.X5lMrdHsKJU8VxwxhHydd7-UAgCiAAA1ecwht5HhPuo
+
+
 ###
 POST http://localhost:5001/users
 Content-Type: application/json
@@ -21,3 +23,6 @@ Content-Type: application/json
 
 ###
 GET http://localhost:5001/token
+
+###
+DELETE http://localhost:5001/logout

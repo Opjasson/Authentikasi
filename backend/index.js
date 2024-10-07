@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors"
 import db from "./config/Database.js";
 import router from "./Routes/index.js";
 import cookieParser from "cookie-parser"
@@ -18,6 +19,8 @@ try {
     console.log(error);
 }
 
+// Fungsi cors supaya api memberikan izin untuk diakases dari luar
+app.use(cors( { credentials:true, origin:'http://localhost:3000' }))
 app.use(express.json()); // Supaya bisa menerima data dalam bentuk json
 app.use(cookieParser())
 app.use(router);
