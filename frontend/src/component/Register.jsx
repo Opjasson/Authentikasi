@@ -19,7 +19,7 @@ function Register() {
                 password: password,
                 confPassword: confPassword,
             });
-            navigate("/login");
+            navigate("/");
         } catch (error) {
             if (error) {
                 setMsg(error.response.data.msg);
