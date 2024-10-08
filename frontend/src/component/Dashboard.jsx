@@ -28,7 +28,8 @@ function Dashboard() {
         }
     };
 
-    axios.interceptors.request.use(async (config) => {
+    const axiosJwt = axios.create();
+    axiosJwt.interceptors.request.use(async (config) => {
         const currentDate = new Date();
         if (expire * 1000 < currentDate.getTime()) {
             const response = await axios.get("http://localhost:5001/token");
@@ -38,10 +39,12 @@ function Dashboard() {
             setName(decoded.name);
             setExpire(decoded.exp);
         }
-    });
+        return config;
+    }, (error)=>{
+        return Promise.reject(error)});
 
     const getUsers = async () => {
-        const response = await axios.get("http://localhost:5001/users", {
+        const response = await axiosJwt.get("http://localhost:5001/users", {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
